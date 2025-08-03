@@ -1,16 +1,16 @@
-# Iris-flower-prediction
+# spam-predictor
 
-A Flask web app that uses a Decision Tree Classifier to predict the species of an iris flower based on petal and sepal dimensions. Built using the classic Iris dataset, this app provides a clean UI for real-time predictions and is deployed using Render.
+This project is a web-based SMS Spam Classifier built using the Naive Bayes algorithm and Flask. It classifies incoming SMS text messages as either Spam or Ham (not spam). The model is trained on the well-known SMS Spam Collection Dataset, which contains real-world SMS messages labeled for spam detection.
 
 ---
 
 ## Features
 
-- Real-Time Prediction: Predicts iris flower species based on user-input features like sepal and petal dimensions.
-- Decision Tree Model: Uses a trained Decision Tree Classifier on the Iris dataset for accurate classification.
-- Flask Web Interface: Simple and interactive web form built with Flask and HTML/CSS.
-- Cloud Deployment: Fully deployed on Render for public access via a live URL.
-- Clean Project Structure: Organized codebase with separate training script, templates, static assets, and model files.
+- Accepts free-text SMS input from users through a simple web form.
+- Uses TF-IDF vectorization to convert text into numerical features.
+- Classifies messages using a Multinomial Naive Bayes model.
+- Displays real-time prediction: Spam or Ham.
+- Clean and responsive Flask web interface, ready for Render deployment.
 
 
 ---
@@ -32,8 +32,8 @@ Make sure the following are installed:
 ### 1. Clone the repository
 
 ```
-git clone https://github.com/sandhiya0147/Iris-flower-prediction.git
-cd Iris-flower-prediction
+git clone https://github.com/sandhiya0147/spam-predictor.git
+cd spam-predictor
 ```
 
 ### 2. Install dependencies
@@ -62,48 +62,42 @@ http://127.0.0.1:5000
 
 ## How It Works
 
-- Data Loading: The Iris dataset is loaded using sklearn.datasets.load_iris() in the training script.
-- Model Training: A Decision Tree Classifier is trained on the dataset and saved as model.pkl.
-- User Input: Users enter sepal and petal measurements into a form on the Flask web page.
-- Prediction: The input values are passed to the trained model, which predicts the flower species.
-- Result Display: The predicted species (Setosa, Versicolor, or Virginica) is shown on the web page instantly.
-
+- The user enters a text message into the web form and submits it.
+- The app loads a pre-trained Naive Bayes model and TF-IDF vectorizer.
+- The input message is converted into a numerical vector using the vectorizer.
+- The model predicts whether the message is Spam or Ham.
+- The prediction result is displayed instantly on the webpage.
+  
 ---
 
 ## File Structure
 
 ```
-Iris-flower-prediction/
-├── assets/                     
-│   ├── filled_input.png
-│   ├── input_form.png
-│   └── predicted_result.png
-│
-├── static/                      
+sms-spam-classifier/
+├── static/
 │   └── style.css
-│
-├── templates/                   
+├── templates/
 │   └── index.html
-│
-├── Iris.csv                     
-├── Procfile                     
-├── README.md                    
-├── app.py                       
-├── model.pkl                    
-├── model_train.py              
-├── requirements.txt             
-└── target_names.pkl             
+├── sms_spam.csv
+├── model_train.py
+├── model.pkl
+├── vectorizer.pkl
+├── target_names.pkl
+├── app.py
+├── requirements.txt
+├── Procfile
+└── README.md           
 ```
 
 ---
 
 ## Future Improvements
 
-- Add input validation to prevent errors and improve user experience.
-- Visualize the decision tree and model accuracy for better understanding.
-- Allow users to switch between multiple machine learning models.
-- Make the UI mobile-friendly using responsive design frameworks.
-- Store predictions and inputs in a database for future analysis.
+- Display prediction confidence – show the probability score for "Spam" or "Ham."
+- Support bulk classification – allow uploading a CSV of multiple messages for batch predictions.
+- Improve preprocessing – add lemmatization, stop word removal, and emoji handling.
+- Switchable models – enable users to choose between Naive Bayes, SVM, or deep learning.
+- Log user inputs (optional) – store messages and predictions for model retraining or analytics.
 
 ---
 
@@ -125,6 +119,7 @@ Iris-flower-prediction/
 
 ## Live Demo
 
-[Click here to view the deployed app](https://iris-flower-prediction-bcqy.onrender.com)
+[Click here to view the deployed app](https://spam-predictor-dmr7.onrender.com)
 
 ---
+
