@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    text-align: center;
+    padding: 50px;
+}
+
+form {
+    background: white;
+    display: inline-block;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+textarea {
+    width: 300px;
+    height: 100px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
